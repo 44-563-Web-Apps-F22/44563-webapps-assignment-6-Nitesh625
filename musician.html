@@ -14,7 +14,7 @@
         <input type ="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="John Lennon"> <br>
         <label for="form1_nick">Guess the musician </label>
         <input type ="text" id="form1_nick" name="form1_nick" autofocus > <br>
-        <input type="button" onclick="checkGuess()" value="Check the guess">
+        <input type="button" onclick="checkGuess();endGame()" value="Check the guess">
     
     </form>
 
@@ -38,7 +38,7 @@
                 alert("You got it right");
             } else {
                 wrong=wrong+1;
-                alert("“Wrong Musician");
+                alert("Wrong Musician");
             }
             out.innerHTML="correct "+correct+"  wrong "+wrong
     
@@ -71,6 +71,19 @@
         
         
         }
+        function endGame(){
+
+        while (wrong > 3) {
+    if(wrong>=3){
+        wrong-=5
+        alert("Sorry, game over.")
+    }
+    else{
+        document.getElementById("result").innerHTML = "correct : " + correct + " , " + " wrong : " + wrong
+    }    
+}
+
+}
             </script>
         </div>
 
